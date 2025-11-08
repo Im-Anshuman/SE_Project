@@ -1,4 +1,4 @@
-pip install torch==2.3.0
+
 import streamlit as st
 import json
 from sentence_transformers import SentenceTransformer
