@@ -2,6 +2,20 @@ import streamlit as st
 import json
 import os
 from functools import partial
+import streamlit as st
+
+st.set_page_config(page_title="Learning Progress Tracker", page_icon="🎯", layout="wide")
+
+st.title("🎯 Learning Progress Tracker")
+
+# Access data from session_state
+if "selected_career" in st.session_state:
+    st.subheader(f"Tracking: {st.session_state['selected_career']} ({st.session_state['selected_level']})")
+
+    for i, task in enumerate(st.session_state["selected_tasks"], start=1):
+        st.checkbox(f"Step {i}: {task}")
+else:
+    st.warning("⚠️ Please go to the main page first and generate your roadmap.")
 
 st.set_page_config(page_title="Learning Progress Tracker", layout="wide")
 st.title("📘 Learning Progress Tracker")
@@ -122,3 +136,4 @@ with col1:
 with col3:
     if st.button("🔄 Refresh Dashboard"):
         st.rerun()
+
